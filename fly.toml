@@ -1,12 +1,9 @@
-app = "juliymarian-web2"  
-
+app = "juliymarian-casorio"   
 [build]
-  builder = "paketobuildpacks/builder-jammy-base"
-  buildpacks = ["gcr.io/paketo-buildpacks/python"]
+  dockerfile = "Dockerfile"   # fuerza Docker (nada de mise/Nixpacks)
 
 [env]
   PORT = "8080"
-  BP_PYTHON_VERSION = "3.12.*"
 
 [http_service]
   internal_port = 8080
