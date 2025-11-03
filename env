@@ -1,0 +1,2 @@
+ADMIN_KEY=cambiame-por-una-clave-secreta
+FLASK_SECRET_KEY=otra-clave

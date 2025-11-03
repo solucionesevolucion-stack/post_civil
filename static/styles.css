@@ -1,0 +1,320 @@
+/* ===== Paleta & tipografías ===== */
+:root{
+  --bg: #000000;         /* fondo negro elegante */
+  --card: rgba(20,20,20,0.75); /* tarjeta oscuro vidrio */
+  --ink: #f8f5f2;        /* crema / blanco cálido */
+  --muted: #c8c2b6;      /* gris cálido */
+  --gold: #d6c29a;       /* dorado suave */
+  --gold-2: #c8b183;     /* dorado claro */
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+html, body {
+  height: 100%;
+}
+
+body{
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Contenedor tarjeta estilo invitación oscura ===== */
+.bg-gradient-dark{
+  background: var(--card) !important;
+  border-radius: var(--radius);
+  border: 1px solid rgba(214,194,157,0.2);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Borde luminoso dorado suave */
+.bg-gradient-dark:before{
+  content:"";
+  position:absolute; inset: 0;
+  pointer-events: none;
+  border-radius: calc(var(--radius) + 8px);
+  background:
+    radial-gradient(900px 200px at 15% -10%, rgba(214,194,157,.15), transparent 60%),
+    radial-gradient(900px 200px at 90% 10%, rgba(214,194,157,.1), transparent 60%);
+  filter: blur(3px);
+}
+
+/* ===== Títulos ===== */
+h1, .h1, .h2, .h3{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  letter-spacing: .3px;
+}
+
+h1.h3{
+  font-size: clamp(1.9rem, 1.4rem + 1.5vw, 2.4rem);
+  color: var(--ink);
+}
+
+/* Fecha con líneas doradas */
+.event-date{
+  color: var(--muted);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+}
+.event-date:before,
+.event-date:after{
+  content:"";
+  height: 1px;
+  width: 36px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ===== Formularios ===== */
+.form-label{
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-control,
+.form-select{
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(30,30,30,0.8);
+  color: var(--ink);
+}
+.form-control:focus,
+.form-select:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 .25rem rgba(214,194,157,.25);
+}
+
+/* Grupo de asistencia */
+.btn-outline-success,
+.btn-outline-secondary{
+  border-radius: 999px;
+  padding: .55rem 1rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.btn-outline-success{
+  border-color: var(--gold);
+}
+.btn-outline-success:hover,
+.btn-outline-success:focus{
+  background: rgba(214,194,157,.15);
+  border-color: var(--gold);
+}
+
+.btn-outline-secondary{
+  border-color: rgba(255,255,255,0.15);
+  color: var(--muted);
+}
+.btn-outline-secondary:hover{
+  background: rgba(255,255,255,0.08);
+  color: var(--ink);
+}
+
+/* Botón principal */
+.btn-primary{
+  background: linear-gradient(180deg, var(--gold), var(--gold-2));
+  border: 1px solid var(--gold);
+  color: #000;
+  font-weight: 600;
+  border-radius: 12px;
+}
+.btn-primary:hover{
+  filter: brightness(.95);
+}
+
+/* Texto secundario */
+.text-secondary{
+  color: var(--muted) !important;
+}
+
+/* Alerts */
+.alert{
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(40,40,40,.6);
+  color: var(--ink);
+}
+
+/* Pequeños ajustes */
+.container{
+  padding-bottom: 2.5rem;
+}
+.card-body{
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem) !important;
+}
+
+.form-text{
+  color: var(--muted) !important;
+}
+
+/* Mobile tweaks */
+@media (max-width: 576px){
+  .btn-group > label{
+    padding: .5rem .9rem;
+  }
+}
+/* --- Formularios legibles sobre tarjeta oscura --- */
+.bg-gradient-dark .form-control,
+.bg-gradient-dark .form-select {
+  background: #1f2227;
+  color: #ffffff;
+  border-color: #3a3f45;
+}
+
+.bg-gradient-dark .form-control:focus,
+.bg-gradient-dark .form-select:focus {
+  background: #23272e;
+  color: #ffffff;
+  border-color: #59626e;
+  box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* Placeholders en inputs */
+.bg-gradient-dark .form-control::placeholder {
+  color: #b8c2cc;
+  opacity: .85;
+}
+
+/* Opciones del <select> nativo */
+.bg-gradient-dark .form-select option {
+  color: #ffffff;
+  background: #1f2227;
+}
+
+/* Botones de radios estilo outline en oscuro */
+.bg-gradient-dark .btn-outline-success,
+.bg-gradient-dark .btn-outline-secondary {
+  color: #ffffff;
+  border-color: #46505a;
+}
+.bg-gradient-dark .btn-outline-success:hover,
+.bg-gradient-dark .btn-outline-secondary:hover {
+  background: #2b3137;
+  color: #ffffff;
+}
+
+/* --- Select2 (si lo usás) --- */
+.select2-container { width: 100% !important; }
+.select2-container--default .select2-selection--single {
+  background: #1f2227;
+  border-color: #3a3f45;
+  height: calc(2.5rem + 2px);
+  border-radius: .375rem;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #ffffff;
+  line-height: calc(2.5rem);
+  padding-left: .75rem;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: calc(2.5rem);
+  right: .5rem;
+}
+.select2-dropdown {
+  background: #1f2227;
+  border-color: #3a3f45;
+}
+.select2-results__option { color: #ffffff; }
+.select2-results__option--highlighted { background: #2b3137 !important; }
+.select2-search--dropdown .select2-search__field {
+  background: #23272e;
+  color: #ffffff;
+  border-color: #3a3f45;
+}
+/* ===== Afinado general sin tocar la paleta ===== */
+
+/* Botón principal menos "gigante" */
+.btn-primary.btn-lg{
+  padding: .65rem 1rem;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+/* Radio-buttons (Sí/No) más equilibrados */
+.btn-group .btn{
+  padding: .5rem .9rem;
+  font-size: .95rem;
+  line-height: 1.2;
+}
+
+/* Inputs/selects razonables (sin ser enormes) */
+.form-control,
+.form-select{
+  height: 2.6rem;
+  padding: .45rem .75rem;
+  font-size: .95rem;
+}
+
+/* Títulos y espacios algo más contenidos */
+h1.h3{
+  margin-bottom: .25rem;
+}
+.text-secondary{
+  font-size: .95rem;
+}
+
+/* Datalist: evita que el input se “agrande” */
+input[list]{
+  font-size: .95rem;
+}
+
+/* ——— Mobile ——— */
+@media (max-width: 576px){
+  /* Card con respiración justa */
+  .card-body{
+    padding: 1rem !important;
+  }
+
+  /* Título un toque más chico en celu */
+  h1.h3{
+    font-size: clamp(1.7rem, 1.2rem + 2.5vw, 2.1rem);
+  }
+
+  /* Grupo Sí/No en dos botones fluidos, sin ocupar más altura de la necesaria */
+  .btn-group[role="group"]{
+    display: flex;
+    gap: .5rem;
+    flex-wrap: nowrap; /* no saltes de línea si entra */
+    width: 100%;
+  }
+  .btn-group .btn{
+    flex: 1 1 0;
+    padding: .5rem .75rem;
+    font-size: .95rem;
+    white-space: nowrap;
+    border-radius: 999px;
+  }
+
+  /* Botón Enviar más compacto */
+  .btn-primary.btn-lg{
+    padding: .6rem .9rem;
+    font-size: .95rem;
+    border-radius: 10px;
+  }
+
+  /* Inputs algo más bajos en celu */
+  .form-control,
+  .form-select{
+    height: 2.4rem;
+    padding: .4rem .65rem;
+    font-size: .95rem;
+  }
+
+  /* Reduce márgenes verticales entre bloques */
+  .mt-3{ margin-top: .85rem !important; }
+  .mb-4{ margin-bottom: 1rem !important; }
+}
+
+/* Evita que el select se estire de más en algunos Android */
+.form-select{
+  background-position: right .6rem center;
+}
