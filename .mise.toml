@@ -1,5 +1,6 @@
+# .mise.toml
 [tools]
-python = "3.12.6"   # o 3.11.9 si preferís
+python = "3.12.6"   # estable; también podés usar "3.11.9"
 
 [settings]
 python_compile = true
