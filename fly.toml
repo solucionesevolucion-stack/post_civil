@@ -1,10 +1,14 @@
-app = "juliymarian"          
+app = "juliymarian"
 
 [build]
-  dockerfile = "Dockerfile"   
+  # Fuerza Buildpacks (no Nixpacks/mise, no Docker)
+  builder = "paketobuildpacks/builder-jammy-base"
+  buildpacks = ["gcr.io/paketo-buildpacks/python"]
 
 [env]
   PORT = "8080"
+  # Fijá versión de Python para Paketo:
+  BP_PYTHON_VERSION = "3.12.*"   # también podés usar "3.11.*"
 
 [http_service]
   internal_port = 8080
